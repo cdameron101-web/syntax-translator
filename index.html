@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Syntax Translator with Kanan AI coding assistance" />
+  <title>Syntax Translator | Kanan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body class="theme-turquoise">
+  <div class="background-orb orb-one"></div>
+  <div class="background-orb orb-two"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Syntax Translator home">
+      <span class="brand-mark">&lt;/&gt;</span>
+      <span>
+        <strong>Syntax Translator</strong>
+        <small>Powered by Kanan</small>
+      </span>
+    </a>
+
+    <div class="theme-picker" aria-label="Choose background theme">
+      <button class="theme-dot turquoise active" data-theme="theme-turquoise" aria-label="Turquoise and purple theme"></button>
+      <button class="theme-dot ocean" data-theme="theme-ocean" aria-label="Ocean blue theme"></button>
+      <button class="theme-dot firebrick" data-theme="theme-firebrick" aria-label="Firebrick red theme"></button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <p class="eyebrow">LEARN • TRANSLATE • BUILD</p>
+      <h1>Speak Every <span>Programming Language</span></h1>
+      <p class="hero-copy">
+        Translate common syntax between frontend, backend, systems, mobile, scripting,
+        data, and database languages. Kanan explains what the code does and how to improve it.
+      </p>
+      <a class="cta-button" href="#workspace">Start Translating <span>→</span></a>
+    </section>
+
+    <section class="workspace glass-card" id="workspace">
+      <div class="workspace-heading">
+        <div>
+          <p class="section-label">TRANSLATOR</p>
+          <h2>Convert syntax instantly</h2>
+        </div>
+        <button id="swapButton" class="secondary-button" type="button">⇄ Swap</button>
+      </div>
+
+      <div class="language-grid">
+        <label>
+          Source language
+          <select id="sourceLanguage"></select>
+        </label>
+        <label>
+          Target language
+          <select id="targetLanguage"></select>
+        </label>
+      </div>
+
+      <div class="editor-grid">
+        <article class="editor-panel">
+          <div class="panel-header">
+            <span>Input code</span>
+            <button id="clearButton" class="text-button" type="button">Clear</button>
+          </div>
+          <textarea id="sourceCode" spellcheck="false" aria-label="Source code">function greet(name) {
+  console.log("Hello, " + name);
+}
+
+greet("World");</textarea>
+        </article>
+
+        <article class="editor-panel">
+          <div class="panel-header">
+            <span>Translated code</span>
+            <button id="copyButton" class="text-button" type="button">Copy</button>
+          </div>
+          <pre id="translatedCode" tabindex="0"><code>Your translated code will appear here.</code></pre>
+        </article>
+      </div>
+
+      <div class="action-row">
+        <button id="translateButton" class="primary-button" type="button">
+          <span class="button-label">Translate Code</span>
+          <span class="button-loader" aria-hidden="true"></span>
+        </button>
+        <span id="statusMessage" role="status" aria-live="polite"></span>
+      </div>
+    </section>
+
+    <section class="results-grid">
+      <article class="explanation-card glass-card">
+        <div class="card-title">
+          <span class="icon">?</span>
+          <div>
+            <p class="section-label">CODE GUIDE</p>
+            <h2>Explanation</h2>
+          </div>
+        </div>
+        <div id="explanation" class="scroll-area">
+          Submit code to receive a plain-English explanation, syntax notes, and learning tips.
+        </div>
+      </article>
+
+      <article class="kanan-card glass-card">
+        <div class="card-title">
+          <div class="kanan-avatar">K</div>
+          <div>
+            <p class="section-label">AI CODING ASSISTANT</p>
+            <h2>Kanan</h2>
+          </div>
+          <span class="online-badge">ONLINE</span>
+        </div>
+
+        <div id="chatMessages" class="chat-messages scroll-area">
+          <div class="message assistant">
+            I’m Kanan. Ask me to explain code, find bugs, compare languages, or suggest a cleaner approach.
+          </div>
+        </div>
+
+        <form id="chatForm" class="chat-form">
+          <input id="chatInput" type="text" placeholder="Ask Kanan about your code..." autocomplete="off" />
+          <button type="submit" aria-label="Send message">➤</button>
+        </form>
+      </article>
+    </section>
+
+    <section class="language-section glass-card">
+      <p class="section-label">LANGUAGE COVERAGE</p>
+      <h2>Popular technologies included</h2>
+      <div id="languageChips" class="language-chips"></div>
+      <p class="coverage-note">
+        This starter recognizes common syntax patterns. Production-grade translation should use language parsers,
+        abstract syntax trees, tests, and a secured model or compiler service.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <span>Syntax Translator</span>
+    <span>Built for developers who learn by comparison.</span>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
